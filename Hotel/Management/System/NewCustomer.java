@@ -4,11 +4,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.*;
 
 public class NewCustomer extends JFrame implements ActionListener {
-    JComboBox comboBox;
+    JComboBox<String> comboBox;
     JTextField textFieldNumber ,TextName, TextCountry,TextDeposite,TextDeases,TextOccupation;
     JRadioButton r1, r2;
     Choice c1;
@@ -42,7 +43,7 @@ public class NewCustomer extends JFrame implements ActionListener {
         labelID.setFont(new Font("Tahoma", Font.PLAIN, 14));
         panel.add(labelID);
 
-        comboBox = new JComboBox(new String[] {"Passport", "Aadhar Card", "Voter Id", "Driving License"});
+        comboBox = new JComboBox<>(new String[] {"Passport", "Aadhar Card", "Voter Id", "Driving License"});
         comboBox.setBounds(271,66,150,20);
         comboBox.setBackground(new Color(3,45,48));
         comboBox.setForeground(Color.WHITE);
@@ -114,8 +115,9 @@ public class NewCustomer extends JFrame implements ActionListener {
                 c1.add(resultSet.getString("room"));
             }
 
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "You missed something", "Error", JOptionPane.ERROR_MESSAGE);
+
         }
         c1.setBounds(271,230,150,20);
         c1.setFont(new Font("Tahoma", Font.BOLD, 14));

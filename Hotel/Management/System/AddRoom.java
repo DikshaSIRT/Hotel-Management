@@ -3,11 +3,12 @@ package Hotel.Management.System;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class AddRoom extends JFrame implements ActionListener {
     JTextField t2,t4;
-    JComboBox t3,t5,t6;
+    JComboBox <String> t3,t5,t6;
     JButton b1,b2;
     AddRoom(){
 
@@ -41,7 +42,7 @@ public class AddRoom extends JFrame implements ActionListener {
         l3.setForeground(Color.WHITE);
         panel.add(l3);
 
-        t3 =new JComboBox(new String[] {"Available", "Occupied"});
+        t3 =new JComboBox <>(new String[] {"Available", "Occupied"});
         t3.setBounds(200,110,156,20);
         t3.setFont(new Font("Tahoma", Font.PLAIN, 14));
         t3.setForeground(Color.WHITE);
@@ -68,7 +69,7 @@ public class AddRoom extends JFrame implements ActionListener {
         l5.setForeground(Color.WHITE);
         panel.add(l5);
 
-        t5 =new JComboBox(new String[]{"Cleaned","Dirty"});
+        t5 =new JComboBox<>(new String[]{"Cleaned","Dirty"});
         t5.setBounds(200,190,156,20);
         t5.setFont(new Font("Tahoma", Font.PLAIN, 14));
         t5.setForeground(Color.WHITE);
@@ -81,7 +82,7 @@ public class AddRoom extends JFrame implements ActionListener {
         l6.setForeground(Color.WHITE);
         panel.add(l6);
 
-        t6 =new JComboBox(new String[]{"Single Bed","Double Bed"});
+        t6 =new JComboBox<>(new String[]{"Single Bed","Double Bed"});
         t6.setBounds(200,230,156,20);
         t6.setFont(new Font("Tahoma", Font.PLAIN, 14));
         t6.setForeground(Color.WHITE);
@@ -137,8 +138,9 @@ public class AddRoom extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Room Successfully Added");
                 setVisible(false);
 
-            }catch (Exception E){
-                E.printStackTrace();
+            }catch (HeadlessException | SQLException E){
+                JOptionPane.showMessageDialog(null, "You missed something", "Error", JOptionPane.ERROR_MESSAGE);
+
             }
         }else {
             setVisible(false);

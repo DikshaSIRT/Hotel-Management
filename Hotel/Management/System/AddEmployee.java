@@ -3,13 +3,14 @@ package Hotel.Management.System;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class AddEmployee extends JFrame implements ActionListener {
 
     JTextField nameText, ageText, salaryText, phoneText, aadharText, emailText,TextDeases;
     JRadioButton radioButtonM, radioButtonF;
-    JComboBox comboBox;
+    JComboBox<String> comboBox;
     JButton add,back;
     AddEmployee(){
         JPanel panel = new JPanel();
@@ -68,7 +69,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         job.setForeground(Color.WHITE);
         panel.add(job);
 
-        comboBox = new JComboBox(new String[]{"Front Desk", "Housekeeping", "Kitchen Staff","Room Service", "Manager", "Accountant","Chef","Doctor"});
+        comboBox = new JComboBox <>(new String[]{"Front Desk", "Housekeeping", "Kitchen Staff","Room Service", "Manager", "Accountant","Chef","Doctor"});
         comboBox.setBackground(new Color(16,108,115));
         comboBox.setBounds(200,170,150,30);
         comboBox.setFont(new Font("Tahoma", Font.BOLD,14));
@@ -198,8 +199,9 @@ public class AddEmployee extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Employee Added");
                 setVisible(false);
 
-            }catch (Exception E){
-                E.printStackTrace();
+            }catch (HeadlessException | SQLException E){
+                JOptionPane.showMessageDialog(null, "You missed something", "Error", JOptionPane.ERROR_MESSAGE);
+
             }
 
 

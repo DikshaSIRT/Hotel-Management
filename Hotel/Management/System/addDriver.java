@@ -3,11 +3,12 @@ package Hotel.Management.System;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class addDriver extends JFrame implements ActionListener {
     JTextField nameText, ageText,carCText,carNText,locText;
-    JComboBox comboBox, comboBox1;
+    JComboBox<String>comboBox, comboBox1;
     JButton add, back;
     addDriver(){
 
@@ -53,7 +54,7 @@ public class addDriver extends JFrame implements ActionListener {
         gender.setForeground(Color.WHITE);
         panel.add(gender);
 
-        comboBox = new JComboBox(new String[]{"Male","Female"});
+        comboBox = new JComboBox <>(new String[]{"Male","Female"});
         comboBox.setBounds(176,150,154,20);
         comboBox.setForeground(Color.WHITE);
         comboBox.setFont(new Font("Tahoma",Font.BOLD,14));
@@ -89,7 +90,7 @@ public class addDriver extends JFrame implements ActionListener {
         available.setFont(new Font("Tahoma", Font.BOLD,14));
         available.setForeground(Color.WHITE);
         panel.add(available);
-        comboBox1 = new JComboBox(new String[]{"YES","NO"});
+        comboBox1 = new JComboBox <String>(new String[]{"YES","NO"});
         comboBox1.setBounds(176,270,154,20);
         comboBox1.setForeground(Color.WHITE);
         comboBox1.setFont(new Font("Tahoma",Font.BOLD,14));
@@ -156,8 +157,8 @@ public class addDriver extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Driver Added");
                 setVisible(false);
 
-            }catch (Exception E){
-                E.printStackTrace();
+            }catch (HeadlessException | SQLException E){
+                E.getMessage();
             }
 
         }else {
