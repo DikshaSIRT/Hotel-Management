@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": [
+        "c:\\Users\\diksh\\Downloads\\rs2xml.jar",
+        "c:\\Users\\diksh\\Downloads\\mysql-connector-j-9.1.0.jar",
+        "c:\\Users\\diksh\\Downloads\\rs2xml (1).jar"
+    ],
+    "java.project.sourcePaths": [
+        ".",
+        "Practice"
+    ]
+}
