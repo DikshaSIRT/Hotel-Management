@@ -1,10 +1,10 @@
 package Hotel.Management.System;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import javax.swing.*;
 
 public class UpdateCheck extends JFrame {
     UpdateCheck(){
@@ -119,8 +119,8 @@ public class UpdateCheck extends JFrame {
                  setVisible(false);
 
              }catch (Exception E){
-                error e= new error();
-                 error();
+                JOptionPane.showMessageDialog(null, "You missed something", "Error", JOptionPane.ERROR_MESSAGE);
+
              }
             }
         });
